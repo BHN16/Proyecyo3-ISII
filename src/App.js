@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Topbar from "./components/topbar/Topbar";
+import Navbar from "./components/navbar/Navbar";
+import VotosRegion from "./pages/votos-region/VotosRegion";
+import VotosDistrito from "./pages/votos-distrito/VotosDistrito";
+import VotosDepartamento from "./pages/votos-departamento/VotosDepartamento";
+import VotosValidos from "./pages/votos-validos/VotosValidos";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Topbar />
+      <Navbar />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<VotosValidos />} />
+          <Route path="/region" element={<VotosRegion />} />
+          <Route path="/distrito" element={<VotosDistrito />} />
+          <Route path="/departamento" element={<VotosDepartamento />} />
+        </Routes >
+      </div>
+    </>
   );
 }
 
